@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C.D.E. Artérea Norte | Club Deportivo Elemental</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --fucsia: #e00078;
+            --fucsia-hover: #c00066;
+            --burdeos: #5a002c;
+            --burdeos-dark: #3b001d;
+            --blanco: #ffffff;
+            --gris-claro: #fdf8fb;
+            --texto-oscuro: #2b2b2b;
+            --sombra: 0 10px 30px rgba(90, 0, 44, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--gris-claro);
+            color: var(--texto-oscuro);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .brand-font {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            background: linear-gradient(135deg, var(--burdeos-dark), var(--burdeos));
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            border-bottom: 3px solid var(--fucsia);
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.6rem 2rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-nav-img {
+            height: 48px;
+            width: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--fucsia);
+            background-color: var(--blanco);
+        }
+
+        .logo-text {
+            color: var(--blanco);
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo-text span {
+            color: var(--fucsia);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: var(--blanco);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--fucsia);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(rgba(20, 0, 10, 0.92), rgba(59, 0, 29, 0.95));
+            color: var(--blanco);
+            text-align: center;
+            padding: 4rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-logo-main {
+            max-width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.2rem;
+            border: 4px solid var(--fucsia);
+            box-shadow: 0 0 25px rgba(224, 0, 120, 0.6);
+            background-color: var(--blanco);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 750px;
+            margin: 0 auto 2rem;
+            opacity: 0.95;
+        }
+
+        .badge-tag {
+            display: inline-block;
+            background-color: var(--fucsia);
+            color: var(--blanco);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        /* CONTENEDORES */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--burdeos);
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+
+        /* TRAYECTORIA Y EQUIPO */
+        .about-box {
+            background: var(--blanco);
+            border-radius: 16px;
+            padding: 3rem 2.5rem;
+            box-shadow: var(--sombra);
+            border-left: 6px solid var(--fucsia);
+            margin-bottom: 3rem;
+        }
+
+        .about-box h3 {
+            color: var(--burdeos);
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-box p {
+            margin-bottom: 1rem;
+            color: #444;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-card {
+            background: var(--blanco);
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            box-shadow: var(--sombra);
+            border-top: 4px solid var(--fucsia);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-avatar {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--burdeos), var(--fucsia));
+            border-radius: 50%;
+            margin: 0 auto 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blanco);
+            font-size: 2.2rem;
+            box-shadow: 0 6px 15px rgba(224, 0, 120, 0.3);
+        }
+
+        .team-name {
+            color: var(--burdeos);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .team-role {
+            color: var(--fucsia);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .team-desc {
+            font-size: 0.92rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* TARJETAS DISCIPLINAS INTERACTIVAS */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--blanco);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            border-top: 4px solid var(--fucsia);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(224, 0, 120, 0.2);
+        }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--fucsia);
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            color: var(--burdeos);
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .click-hint {
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--fucsia);
+            font-weight: 700;
+        }
+
+        /* ESPECTÁCULOS DE CIRCO */
+        .circo-box {
+            background: linear-gradient(135deg, var(--burdeos), var(--burdeos-dark));
+            color: var(--blanco);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            margin-top: 3rem;
+            text-align: center;
+            border: 2px solid var(--fucsia);
+            box-shadow: var(--sombra);
+        }
+
+        .circo-box h3 {
+            font-size: 2rem;
+            color: var(--blanco);
+            margin-bottom: 1rem;
+        }
+
+        .circo-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 1.5rem;
+        }
+
+        .tag-item {
+            background-color: rgba(224, 0, 120, 0.2);
+            border: 1px solid var(--fucsia);
+            color: var(--blanco);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        /* SEDES / PUEBLOS */
+        .pueblos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .pueblo-card {
+            background: var(--blanco);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--sombra);
+            border-left: 5px solid var(--burdeos);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .pueblo-card h3 {
+            color: var(--burdeos);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-link {
+            display: inline-block;
+            background-color: var(--fucsia);
+            color: var(--blanco);
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 0.8rem;
+            transition: background 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-link:hover {
+            background-color: var(--fucsia-hover);
+        }
+
+        .btn-doc {
+            background-color: #f0e6eb;
+            color: var(--burdeos);
+            border: 1px solid var(--fucsia);
+        }
+
+        .btn-doc:hover {
+            background-color: var(--fucsia);
+            color: var(--blanco);
+        }
+
+        /* TABLA HORARIOS */
+        .tabla-container {
+            overflow-x: auto;
+            background: var(--blanco);
+            border-radius: 12px;
+            box-shadow: var(--sombra);
+            margin-top: 1rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--burdeos);
+            color: var(--blanco);
+            padding: 1rem;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        .badge-modality {
+            background-color: #f0e6eb;
+            color: var(--burdeos);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .badge-disc {
+            background-color: var(--fucsia);
+            color: #fff;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 4px;
+        }
+
+        .filter-banner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f0e6eb;
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--fucsia);
+        }
+
+        .btn-reset {
+            background: var(--burdeos);
+            color: #fff;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* DOCUMENTOS GENERALES */
+        .docs-general-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .doc-card {
+            background: var(--blanco);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: var(--sombra);
+            border-top: 3px solid var(--fucsia);
+            text-align: center;
+        }
+
+        .doc-card i {
+            font-size: 2.2rem;
+            color: var(--fucsia);
+            margin-bottom: 0.8rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--burdeos-dark);
+            color: var(--blanco);
+            text-align: center;
+            padding: 2.5rem 2rem;
+            margin-top: 4rem;
+            border-top: 4px solid var(--fucsia);
+        }
+
+        footer img {
+            max-width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 2px solid var(--fucsia);
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER / NAVBAR -->
+    <header>
+        <div class="navbar">
+            <a href="#" class="logo-container">
+                <img src="logo.png" alt="C.D.E. Artérea Norte Logo" class="logo-nav-img">
+                <div class="logo-text">ARTÉREA <span>NORTE</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#presentacion">El Club</a></li>
+                <li><a href="#equipo">Equipo</a></li>
+                <li><a href="#disciplinas">Disciplinas</a></li>
+                <li><a href="#espectaculos">Espectáculos</a></li>
+                <li><a href="#sedes">Sedes</a></li>
+                <li><a href="#documentos">Autorizaciones</a></li>
+                <li><a href="#horarios">Horarios</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <img src="logo.png" alt="C.D.E. Artérea Norte" class="hero-logo-main">
+        <span class="badge-tag">Club Deportivo Elemental</span>
+        <h1>C.D.E. ARTÉREA NORTE</h1>
+        <p>Especialistas en Telas Aéreas, Gimnasia Rítmica, Pilates y Espectáculos de Circo en la Sierra Norte de Madrid, Algete y Barajas.</p>
+    </section>
+
+    <!-- PRESENTACIÓN Y TRAYECTORIA DEL CLUB -->
+    <section class="container" id="presentacion">
+        <h2 class="section-title">Sobre C.D.E. Artérea Norte</h2>
+        <p class="section-subtitle">Nuestra historia, valores y trayectoria técnico-deportiva</p>
+        
+        <div class="about-box">
+            <h3><i class="fa-solid fa-star" style="color: var(--fucsia);"></i> Trayectoria del Proyecto</h3>
+            <p><strong>C.D.E. Artérea Norte</strong> nace con la misión de dinamizar la actividad artística y deportiva en los municipios de la Sierra Norte de Madrid, Algete y la zona noreste. Nos especializamos en la enseñanza técnica e integral de las artes aéreas, la gimnasia rítmica y el acondicionamiento físico a través del método Pilates.</p>
+            <p>Nuestro proyecto combina el rigor técnico de la disciplina deportiva con la expresión artística del circo y la danza. A lo largo de nuestra trayectoria, hemos consolidado sedes de formación en múltiples centros escolares y polideportivos municipales, creando un espacio inclusivo donde niños, jóvenes y adultos desarrollan fuerza, flexibilidad, confianza y trabajo en equipo.</p>
+        </div>
+
+        <!-- EQUIPO TÉCNICO -->
+        <div id="equipo">
+            <h2 class="section-title" style="margin-top: 2rem;">Equipo Técnico</h2>
+            <p class="section-subtitle">Profesionales dedicadas a la formación, coordinación y desarrollo técnico de cada alumno</p>
+
+            <div class="team-grid">
+                <!-- Mercedes Mayo -->
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fa-solid fa-user-tie"></i></div>
+                    <div class="team-name">Mercedes Mayo</div>
+                    <div class="team-role">Coordinadora y Monitora</div>
+                    <p class="team-desc">Coordinadora general del club y monitora especializada en todas las actividades impartidas.</p>
+                </div>
+
+                <!-- Natalia Monroy -->
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fa-solid fa-user-ninja"></i></div>
+                    <div class="team-name">Natalia Monroy</div>
+                    <div class="team-role">Entrenadora</div>
+                    <p class="team-desc">Entrenadora especializada en Telas Aéreas y Gimnasia Rítmica.</p>
+                </div>
+
+                <!-- Aitana Viala -->
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fa-solid fa-user-gear"></i></div>
+                    <div class="team-name">Aitana Viala</div>
+                    <div class="team-role">Entrenadora</div>
+                    <p class="team-desc">Entrenadora especializada en Gimnasia Rítmica.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DISCIPLINAS (INTERACTIVAS - FILTROS) -->
+    <section class="container" id="disciplinas" style="padding-top: 1rem;">
+        <h2 class="section-title">Nuestras Disciplinas</h2>
+        <p class="section-subtitle">Haz clic en una disciplina para filtrar automáticamente la tabla de horarios</p>
+        <div class="grid-3">
+            <div class="card" onclick="filtrarHorario('telas')">
+                <div class="card-body">
+                    <i class="fa-solid fa-feather-pointed card-icon"></i>
+                    <h3 class="card-title">Telas Aéreas</h3>
+                    <p>Acrobacia en tela, técnica, flexibilidad y fuerza desde iniciación hasta adultas.</p>
+                    <span class="click-hint"><i class="fa-solid fa-filter"></i> Ver municipios de Telas &rarr;</span>
+                </div>
+            </div>
+            <div class="card" onclick="filtrarHorario('ritmica')">
+                <div class="card-body">
+                    <i class="fa-solid fa-person-dots-from-line card-icon"></i>
+                    <h3 class="card-title">Gimnasia Rítmica</h3>
+                    <p>Escuela, Pre-competición y Competición. Coordinación y manejo de aparatos.</p>
+                    <span class="click-hint"><i class="fa-solid fa-filter"></i> Ver municipios de Rítmica &rarr;</span>
+                </div>
+            </div>
+            <div class="card" onclick="filtrarHorario('pilates')">
+                <div class="card-body">
+                    <i class="fa-solid fa-heart-pulse card-icon"></i>
+                    <h3 class="card-title">Pilates Suelo y Aparatos</h3>
+                    <p>Tonificación, postura, fuerza del core y movilidad articular integral.</p>
+                    <span class="click-hint"><i class="fa-solid fa-filter"></i> Ver municipios de Pilates &rarr;</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN ESPECTÁCULOS DE CIRCO -->
+    <section class="container" id="espectaculos" style="padding-top: 0;">
+        <div class="circo-box">
+            <span class="badge-tag" style="background-color: #fff; color: var(--burdeos);">¡Nuevo / Eventos!</span>
+            <h3>Espectáculos de Circo y Show Artístico</h3>
+            <p>Diseñamos y realizamos exhibiciones, pasacalles y espectáculos profesionales para eventos, ayuntamientos y fiestas particulares.</p>
+            <div class="circo-tags">
+                <span class="tag-item"><i class="fa-solid fa-ribbon"></i> Telas Aéreas</span>
+                <span class="tag-item"><i class="fa-solid fa-circle-notch"></i> Aro Aéreo</span>
+                <span class="tag-item"><i class="fa-solid fa-person-falling-burst"></i> Contorsionismo</span>
+                <span class="tag-item"><i class="fa-solid fa-fire"></i> Show de Fuego</span>
+                <span class="tag-item"><i class="fa-solid fa-person-walking"></i> Zancos</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEDES Y CONTACTO DE INSCRIPCIÓN -->
+    <section class="container" id="sedes" style="background-color: #fff; border-radius: 16px; padding: 3rem 2rem;">
+        <h2 class="section-title">Sedes, Inscripciones y Autorizaciones</h2>
+        <p class="section-subtitle">Consulta los canales directos y descarga la documentación específica de cada municipio[cite: 1]</p>
+        
+        <div class="pueblos-grid">
+            <div class="pueblo-card">
+                <div>
+                    <h3><i class="fa-solid fa-location-dot"></i> Cobeña</h3>
+                    <p><strong>Polideportivo Municipal</strong>[cite: 1]</p>
+                    <p>Telas Aéreas (Infantil y Adultas)</p>
+                </div>
+                <div>
+                    <a href="mailto:deportes@ayto-cobena.org" class="btn-link">Email Cobeña</a>
+                    <a href="Autorizacion_Club_Arterea_Norte_Cobena_v2.docx" class="btn-link btn-doc" download><i class="fa-solid fa-file-word"></i> Autorización Salida Menor[cite: 1]</a>
+                </div>
+            </div>
+
+            <div class="pueblo-card">
+                <div>
+                    <h3><i class="fa-solid fa-location-dot"></i> Navalafuente</h3>
+                    <p><strong>Polideportivo Municipal</strong></p>
+                    <p>Telas Aéreas (Iniciación, Avanzado, Adultas)</p>
+                </div>
+                <div>
+                    <a href="mailto:polideportivo@navalafuente.org" class="btn-link">Email Navalafuente</a>
+                    <a href="Autorizacion_Club_Arterea_Norte_Navalafuente.docx" class="btn-link btn-doc" download><i class="fa-solid fa-file-word"></i> Autorización Salida Menor Navalafuente</a>
+                </div>
+            </div>
+
+            <div class="pueblo-card">
+                <div>
+                    <h3><i class="fa-solid fa-location-dot"></i> La Cabrera</h3>
+                    <p><strong>CEIP Pico de la Miel</strong></p>
+                    <p>Telas Aéreas (Chupetinas e Infantil)</p>
+                </div>
+                <div>
+                    <a href="https://forms.gle/wTx2GkBKaPi8Gzk48" target="_blank" class="btn-link">Formulario Pico de la Miel</a>
+                    <a href="Autorizacion_Club_Arterea_Norte_CEIP_Pico_de_la_Miel_v2.docx" class="btn-link btn-doc" download><i class="fa-solid fa-file-word"></i> Autorización Salida Solitario</a>
+                </div>
+            </div>
+
+            <div class="pueblo-card">
+                <div>
+                    <h3><i class="fa-solid fa-location-dot"></i> Pedrezuela</h3>
+                    <p><strong>Polideportivo Municipal</strong></p>
+                    <p>Infantil y Adultas (+13 años)</p>
+                </div>
+                <div>
+                    <a href="https://forms.gle/gsSp7ksiruJxALmx7" target="_blank" class="btn-link">Formulario Adultas Pedrezuela</a>
+                    <a href="Autorizacion_Club_Arterea_Norte_Pedrezuela_v2.docx" class="btn-link btn-doc" download><i class="fa-solid fa-file-word"></i> Autorización Salida Menor Pedrezuela</a>
+                </div>
+            </div>
+
+            <div class="pueblo-card">
+                <div>
+                    <h3><i class="fa-solid fa-location-dot"></i> Algete</h3>
+                    <p><strong>Actividad:</strong> Pilates Suelo y Aparatos</p>
+                    <p><strong>Días:</strong> Lunes y Miércoles (10:00 h - 11:00 h)</p>
+                </div>
+                <div>
+                    <a href="#contacto" class="btn-link">Solicitar Plaza Algete</a>
+                </div>
+            </div>
+
+            <div class="pueblo-card">
+                <div>
+                    <h3><i class="fa-solid fa-location-dot"></i> Venturada</h3>
+                    <p><strong>Polideportivo Cotos de Monterrey</strong></p>
+                    <p>Gimnasia Rítmica y Telas Aéreas</p>
+                </div>
+                <div>
+                    <a href="mailto:polideportivov@venturada.org" class="btn-link">Email Venturada</a>
+                </div>
+            </div>
+
+            <div class="pueblo-card">
+                <div>
+                    <h3><i class="fa-solid fa-location-dot"></i> Barajas</h3>
+                    <p><strong>Colegio Gaudem</strong></p>
+                    <p><em>Exclusivo para alumnos del centro</em></p>
+                </div>
+                <div>
+                    <a href="mailto:extraescolares@gaudem.es" class="btn-link">Email Extraescolares Gaudem</a>
+                </div>
+            </div>
+
+            <div class="pueblo-card">
+                <div>
+                    <h3><i class="fa-solid fa-location-dot"></i> Paracuellos</h3>
+                    <p><strong>CEIPSO Andrea Casamayor</strong></p>
+                    <p>Telas Aéreas Primaria y Multinivel</p>
+                </div>
+                <div>
+                    <a href="#contacto" class="btn-link">Solicitar Plaza Paracuellos</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOCUMENTOS GENERALES DEL CLUB -->
+    <section class="container" id="documentos">
+        <h2 class="section-title">Autorizaciones Generales del Club</h2>
+        <p class="section-subtitle">Descarga los documentos comunes válidos para todas las sedes del C.D.E. Artérea Norte[cite: 1]</p>
+        
+        <div class="docs-general-grid">
+            <div class="doc-card">
+                <i class="fa-solid fa-users-rectangle"></i>
+                <h3>Recogida por Terceras Personas</h3>
+                <p>Autorización expresa para que familiares u otros adultos autorizados puedan recoger al menor al finalizar la actividad.</p>
+                <a href="Autorizacion_Recogida_Terceros_Club_Arterea_Norte.docx" class="btn-link btn-doc" download><i class="fa-solid fa-file-word"></i> Descargar Documento</a>
+            </div>
+
+            <div class="doc-card">
+                <i class="fa-solid fa-camera-retro"></i>
+                <h3>Cesión de Derechos de Imagen</h3>
+                <p>Autorización para la difusión de imágenes en redes sociales, web del club y canales institucionales municipales.</p>
+                <a href="Autorizacion_Derechos_Imagen_Club_Arterea_Norte.docx" class="btn-link btn-doc" download><i class="fa-solid fa-file-word"></i> Descargar Documento Menores</a>
+                <a href="Autorizacion_Imagen_CDE_Arterea_Norte_Ayuntamiento.docx" class="btn-link btn-doc" style="margin-top: 5px;" download><i class="fa-solid fa-file-word"></i> Descargar Documento Adultos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- HORARIOS MUNICIPALES CON FILTRO -->
+    <section class="container" id="horarios">
+        <h2 class="section-title">Horarios por Centro y Municipio</h2>
+        <p class="section-subtitle">Tabla completa de actividades por ubicación</p>
+
+        <div id="filter-banner" class="filter-banner" style="display: none;">
+            <span><strong id="filter-name">Filtrado por:</strong></span>
+            <button class="btn-reset" onclick="mostrarTodosHorarios()">Mostrar todos los municipios</button>
+        </div>
+        
+        <div class="tabla-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sede / Municipio</th>
+                        <th>Días</th>
+                        <th>Horario</th>
+                        <th>Grupo / Nivel</th>
+                        <th>Inscripción</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-body">
+                    <!-- ALGETE -->
+                    <tr data-disciplina="pilates">
+                        <td><strong>Algete</strong><br><span class="badge-disc">Pilates</span></td>
+                        <td>Lunes y Miércoles</td>
+                        <td>10:00 - 11:00</td>
+                        <td>Pilates Suelo y Aparatos</td>
+                        <td><span class="badge-modality">Directa Club</span></td>
+                    </tr>
+                    <!-- COBEÑA -->
+                    <tr data-disciplina="telas">
+                        <td><strong>Cobeña</strong><br><span class="badge-disc">Telas Aéreas</span></td>
+                        <td>Lunes y Miércoles</td>
+                        <td>16:30 - 17:30</td>
+                        <td>Telas Aéreas (Infantil)</td>
+                        <td><span class="badge-modality">deportes@ayto-cobena.org</span></td>
+                    </tr>
+                    <tr data-disciplina="telas">
+                        <td><strong>Cobeña</strong><br><span class="badge-disc">Telas Aéreas</span></td>
+                        <td>Lunes y Miércoles</td>
+                        <td>17:30 - 18:30</td>
+                        <td>Telas Aéreas (A partir de 13 años)</td>
+                        <td><span class="badge-modality">deportes@ayto-cobena.org</span></td>
+                    </tr>
+                    <!-- PEDREZUELA -->
+                    <tr data-disciplina="telas">
+                        <td><strong>Pedrezuela</strong><br><span class="badge-disc">Telas Aéreas</span></td>
+                        <td>Lunes y Miércoles</td>
+                        <td>17:15 - 18:15</td>
+                        <td>Telas Aéreas (Infantil)</td>
+                        <td><span class="badge-modality">Formulario / PDF</span></td>
+                    </tr>
+                    <tr data-disciplina="telas">
+                        <td><strong>Pedrezuela</strong><br><span class="badge-disc">Telas Aéreas</span></td>
+                        <td>Lunes y Miércoles</td>
+                        <td>18:15 - 19:45</td>
+                        <td>Telas Aéreas (A partir de 13 años)</td>
+                        <td><span class="badge-modality">Formulario / PDF</span></td>
+                    </tr>
+                    <!-- NAVALAFUENTE -->
+                    <tr data-disciplina="telas">
+                        <td><strong>Navalafuente</strong><br><span class="badge-disc">Telas Aéreas</span></td>
+                        <td>Por determinar</td>
+                        <td>17:00 - 18:30</td>
+                        <td>Telas Aéreas (Iniciación)</td>
+                        <td><span class="badge-modality">polideportivo@navalafuente.org</span></td>
+                    </tr>
+                    <tr data-disciplina="telas">
+                        <td><strong>Navalafuente</strong><br><span class="badge-disc">Telas Aéreas</span></td>
+                        <td>Por determinar</td>
+                        <td>18:30 - 20:00</td>
+                        <td>Telas Aéreas (Avanzado)</td>
+                        <td><span class="badge-modality">polideportivo@navalafuente.org</span></td>
+                    </tr>
+                    <tr data-disciplina="telas">
+                        <td><strong>Navalafuente</strong><br><span class="badge-disc">Telas Aéreas</span></td>
